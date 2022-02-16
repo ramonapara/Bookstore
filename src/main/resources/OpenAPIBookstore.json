@@ -1,0 +1,227 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Bookstore API",
+    "description": "Bookstore API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://Bookstore"
+    }
+  ],
+  "paths": {
+    "/api/bookcollection/authors": {
+      "get": {
+        "summary": "GET api/bookcollection/authors",
+        "operationId": "getAllAuthors",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "match",
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/bookcollection/authors/{id}": {
+      "get": {
+        "summary": "GET api/bookcollection/authors/{id}",
+        "operationId": "getAuthorById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/bookcollection/book": {
+      "post": {
+        "summary": "POST api/bookcollection/book",
+        "operationId": "addBook",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/bookcollection/book/addToCart": {
+      "post": {
+        "summary": "POST api/bookcollection/book/addToCart",
+        "operationId": "addBookToCart",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/bookcollection/books": {
+      "get": {
+        "summary": "GET api/bookcollection/books",
+        "operationId": "getAllBooks",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "items_per_page",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "options": {
+        "summary": "OPTIONS api/bookcollection/books",
+        "operationId": "collectionOptions",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/bookcollection/books/filter": {
+      "get": {
+        "summary": "GET api/bookcollection/books/filter",
+        "operationId": "getAllFilterBooks",
+        "parameters": [
+          {
+            "name": "genre",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/bookcollection/books/{ISBN}": {
+      "get": {
+        "summary": "GET api/bookcollection/books/{ISBN}",
+        "operationId": "getBookByISBN",
+        "parameters": [
+          {
+            "name": "ISBN",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "verbose",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/bookcollection/books/{ISBN}/authors": {
+      "get": {
+        "summary": "GET api/bookcollection/books/{ISBN}/authors",
+        "operationId": "getAllAuthorsByISBN",
+        "parameters": [
+          {
+            "name": "ISBN",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/bookcollection/books/{id}/books": {
+      "get": {
+        "summary": "GET api/bookcollection/books/{id}/books",
+        "operationId": "getAllBooksByAuthorId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}

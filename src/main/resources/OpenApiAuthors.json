@@ -1,0 +1,66 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Bookstore API",
+    "description": "Bookstore API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://Bookstore"
+    }
+  ],
+  "paths": {
+    "/api/bookcollection/authors": {
+      "get": {
+        "summary": "GET api/bookcollection/authors",
+        "operationId": "getAllAuthors",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "match",
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/bookcollection/authors/{id}": {
+      "get": {
+        "summary": "GET api/bookcollection/authors/{id}",
+        "operationId": "getAuthorById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
